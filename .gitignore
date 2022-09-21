@@ -1,0 +1,6 @@
+venv-eq
+.env
+db.sqlite3
+media
+__pycache__
+start.sh
