@@ -1,6 +1,12 @@
 venv-eq
-.env
+.env/
+.venv/
+env/
+venv/
+*.env
 db.sqlite3
 media
 __pycache__
 start.sh
+staticfiles
+*.pyc
