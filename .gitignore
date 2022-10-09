@@ -10,3 +10,5 @@ __pycache__
 start.sh
 staticfiles
 *.pyc
+requirements-dev.txt
+.uncommit
