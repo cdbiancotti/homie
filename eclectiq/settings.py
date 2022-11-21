@@ -27,7 +27,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
-    'polls.apps.PollsConfig'
+    'polls.apps.PollsConfig',
+    'django_extensions' # https://django-extensions.readthedocs.io/en/latest/installation_instructions.html
 ]
 
 MIDDLEWARE = [
