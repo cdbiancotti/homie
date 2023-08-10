@@ -1,0 +1,19 @@
+{% extends 'bases/html.html' %}
+
+{% block head %}
+    <title>Publicaciones</title>
+{% endblock head %}
+
+{% block body %}
+    <h2>Publicaciones:</h2>
+    <a href={% url 'blog:create_page' %}>Crear publicación</a>
+    {% if publicaciones %}
+        {% for publicacion in publicaciones %}
+            <li>
+                {{publicacion}} || <a href={% url 'blog:details_page' publicacion.id %}>Leer mas...</a>
+            </li>
+        {% endfor %}
+    {% else %}
+        <p>No se encontraron publicaciones...</p>
+    {% endif %}
+{% endblock body %}

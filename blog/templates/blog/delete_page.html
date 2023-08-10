@@ -1,0 +1,15 @@
+{% extends 'bases/html.html' %}
+
+{% block head %}
+    <title>Eliminar Publicación</title>
+{% endblock head %}
+
+{% block body %}
+    <p>Esta por eliminar la publicacion {{object}}.</p>
+    <p>
+        <form method="post">
+            {% csrf_token %}
+            <button>Confirmar</button>
+        </form>
+    </p>
+{% endblock body %}

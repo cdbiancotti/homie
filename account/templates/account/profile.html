@@ -1,0 +1,16 @@
+{% extends 'bases/html.html' %}
+
+{% block head %}
+    <title>Perfil</title>
+{% endblock head %}
+
+{% block body %}
+
+    <p>{{request.user.username}}</p>
+    <p>{{request.user.email}}</p>
+    <p>{{request.user.first_name}} {{request.user.last_name}}</p>
+    {% comment %} <img src={{my_user.avatar.url}} alt="" height='200'> {% endcomment %}
+
+
+    <a href={% url 'account:update_profile' %}>Editar</a>
+{% endblock body %}

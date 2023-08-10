@@ -1,0 +1,12 @@
+{% extends 'bases/html.html' %}
+
+{% block head %}
+    <title>Inicio</title>
+{% endblock head %}
+
+{% block body %}
+    <h3>Bienvenidos a mi Blog...</h3>
+    {% if msg %}
+        <p>{{msg}}</p>
+    {% endif %}
+{% endblock body %}
