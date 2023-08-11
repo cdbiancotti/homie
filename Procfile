@@ -1,1 +1,1 @@
-web: python manage.py migrate && gunicorn eclectiq.wsgi
+web: python manage.py migrate && gunicorn settings.wsgi

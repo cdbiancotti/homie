@@ -1,10 +1,10 @@
-{% extends 'bases/html.html' %}
+{% extends 'base.html' %}
 
 {% block head %}
     <title>Perfil</title>
 {% endblock head %}
 
-{% block body %}
+{% block main_content %}
 
     <p>{{request.user.username}}</p>
     <p>{{request.user.email}}</p>
@@ -13,4 +13,4 @@
 
 
     <a href={% url 'account:update_profile' %}>Editar</a>
-{% endblock body %}
+{% endblock main_content %}

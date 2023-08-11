@@ -1,19 +1,10 @@
-{% extends 'bases/html.html' %}
+{% extends 'base.html' %} {% block head %}
+<title>Registro</title>
+{% endblock head %} {% block main_content %} {% if error_msg %} {{error_msg}} {% endif %}
 
-{% block head %}
-    <title>Registro</title>
-{% endblock head %}
+<form action="" method="post">
+    {% csrf_token %} {{form.as_p}}
+    <button>Registrarse</button>
+</form>
 
-{% block body %}
-
-    {% if error_msg %}
-        {{error_msg}}
-    {% endif %}
-    
-    <form action="" method="post">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button>Registrarse</button>
-    </form>
-
-{% endblock body %}
+{% endblock main_content %}

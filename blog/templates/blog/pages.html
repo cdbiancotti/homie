@@ -1,10 +1,10 @@
-{% extends 'bases/html.html' %}
+{% extends 'base.html' %}
 
 {% block head %}
     <title>Publicaciones</title>
 {% endblock head %}
 
-{% block body %}
+{% block main_content %}
     <h2>Publicaciones:</h2>
     <a href={% url 'blog:create_page' %}>Crear publicación</a>
     {% if publicaciones %}
@@ -16,4 +16,4 @@
     {% else %}
         <p>No se encontraron publicaciones...</p>
     {% endif %}
-{% endblock body %}
+{% endblock main_content %}

@@ -4,6 +4,7 @@ from django.views.generic.edit import DeleteView, UpdateView, CreateView
 from .models import Publicacion
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy   
 
 # Create your views here.
 
@@ -25,7 +26,7 @@ class PublicacionDetailView(DetailView):
 class PublicacionDeleteView(LoginRequiredMixin, DeleteView):
     model = Publicacion
     template_name = "blog/delete_page.html"
-    success_url = "/pages"
+    success_url = reverse_lazy('blog:pages')
 
 class PublicacionCreateView(LoginRequiredMixin, CreateView):
     model = Publicacion
@@ -37,7 +38,7 @@ class PublicacionCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
     def get_success_url(self) -> str:
-        return f'/pages/{self.object.id}'
+        return reverse_lazy('blog:details_page', args=[self.object.id])
 
 class PublicacionUpdateView(LoginRequiredMixin, UpdateView):
     model = Publicacion
@@ -45,4 +46,4 @@ class PublicacionUpdateView(LoginRequiredMixin, UpdateView):
     fields = ['titulo', 'subtitulo', 'cuerpo', 'imagen']
     
     def get_success_url(self) -> str:
-        return f'/pages/{self.object.id}'
+        return reverse_lazy('blog:details_page', args=[self.object.id])
