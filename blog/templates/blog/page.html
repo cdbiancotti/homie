@@ -6,16 +6,16 @@
 
 {% block main_content %}
     <h1>
-        {{object.titulo}}
+        {{object.title}}
     </h1>
     <h2>
-        {{object.subtitulo}}
+        {{object.subtitle}}
     </h2>
     <h5>
-        {{object.autor}} - {{object.fecha}} 
+        {{object.author}} - {{object.date}} 
     </h5>
     <img src={{object.imagen.url}} alt="" height='200'>
-    <p>{{object.cuerpo}}</p>
+    <p>{{object.body}}</p>
     <p>
         <a href={% url 'blog:update_page' object.id %}>Editar</a>
         <a href={% url 'blog:delete_page' object.id %}>Eliminar</a>

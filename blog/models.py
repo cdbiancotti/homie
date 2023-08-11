@@ -1,16 +1,21 @@
 from django.db import models
 from ckeditor.fields import RichTextField
+from django.core.exceptions import ValidationError
 
-# Create your models here.
+BAD_TITLES = ['test', 'prueba']
 
+def validate_no_bad_words(title):
+    if any([title.lower() in BAD_TITLES]):
+        raise ValidationError(f"This Post can't has title {title}")    
+    
 class Publicacion(models.Model):
     
-    titulo = models.CharField(max_length=40)
-    subtitulo = models.CharField(max_length=60)
-    cuerpo = RichTextField(blank=True, null=True)
-    autor = models.CharField(max_length=30)
-    fecha = models.DateTimeField(auto_now_add=True)
-    imagen = models.ImageField(upload_to='blog', blank=True, null=True)
+    title = models.CharField(max_length=40, validators=[validate_no_bad_words])
+    subtitle = models.CharField(max_length=60)
+    body = RichTextField(blank=True, null=True)
+    author = models.CharField(max_length=30)
+    date = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(upload_to='blog', blank=True, null=True)
     
     def __str__(self):
-        return f'{self.titulo} ({self.autor})'
+        return f'{self.title} ({self.author})'

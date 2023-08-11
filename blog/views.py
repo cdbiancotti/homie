@@ -31,7 +31,7 @@ class PublicacionDeleteView(LoginRequiredMixin, DeleteView):
 class PublicacionCreateView(LoginRequiredMixin, CreateView):
     model = Publicacion
     template_name = "blog/update_page.html"
-    fields = ['titulo', 'subtitulo', 'cuerpo', 'imagen']
+    fields = ['title', 'subtitle', 'body', 'image']
     
     def form_valid(self, form):
         form.instance.autor = self.request.user.username
@@ -43,7 +43,7 @@ class PublicacionCreateView(LoginRequiredMixin, CreateView):
 class PublicacionUpdateView(LoginRequiredMixin, UpdateView):
     model = Publicacion
     template_name = "blog/update_page.html"
-    fields = ['titulo', 'subtitulo', 'cuerpo', 'imagen']
+    fields = ['title', 'subtitle', 'body', 'image']
     
     def get_success_url(self) -> str:
         return reverse_lazy('blog:details_page', args=[self.object.id])
