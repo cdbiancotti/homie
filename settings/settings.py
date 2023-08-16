@@ -31,7 +31,8 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'account.apps.AccountConfig',
     'django_extensions', # https://django-extensions.readthedocs.io/en/latest/installation_instructions.html
-    'ckeditor'
+    'ckeditor',
+    'lkinpractice'
 ]
 
 MIDDLEWARE = [
