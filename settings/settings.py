@@ -26,18 +26,26 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'rest_framework',
+    'corsheaders',
+    'django_extensions', # https://django-extensions.readthedocs.io/en/latest/installation_instructions.html
+    'ckeditor',
+    
     'home.apps.HomeConfig',
     'polls.apps.PollsConfig',
     'blog.apps.BlogConfig',
     'account.apps.AccountConfig',
-    'django_extensions', # https://django-extensions.readthedocs.io/en/latest/installation_instructions.html
-    'ckeditor',
-    'lkinpractice'
+    'qchat.apps.QchatConfig',
+    'lkinpractice.apps.LkinpracticeConfig'
 ]
+
+CORS_ALLOWED_ORIGINS = ['http://localhost:5173']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',

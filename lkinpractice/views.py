@@ -4,11 +4,10 @@ from lkinpractice.models import Lkin
 
 # Create your views here.
 
-from django.views.generic import TemplateView
+from django.views.generic import View
 
 
-class LkinView(TemplateView):
-    template_name = "lkinpractice/lkin_practice.html"
+class LkinView(View):
     
     def get(self, request):
         lkins = Lkin.objects.all()
@@ -23,5 +22,6 @@ class LkinView(TemplateView):
         lkins = Lkin.objects.all()
         return render(request, 'lkinpractice/lkin_practice.html', {'form': form, 'lkins': lkins})
         
+# class ProfileView()
         
     
