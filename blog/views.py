@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import DeleteView, UpdateView, CreateView
-from .models import Publicacion
+from .models import Post
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy   
@@ -15,24 +15,25 @@ def index(request):
 def about(request):
     return render(request, 'blog/about.html', {})
 
-class PublicacionListView(ListView):
-    model = Publicacion
+class PostListView(ListView):
+    model = Post
     template_name = "blog/pages.html"
     paginate_by=2
+    queryset = Post.objects.all().order_by('-date')
 
 
-class PublicacionDetailView(DetailView):
-    model = Publicacion
+class PostDetailView(DetailView):
+    model = Post
     template_name = "blog/page.html"
 
 
-class PublicacionDeleteView(LoginRequiredMixin, DeleteView):
-    model = Publicacion
+class PostDeleteView(LoginRequiredMixin, DeleteView):
+    model = Post
     template_name = "blog/delete_page.html"
     success_url = reverse_lazy('blog:pages')
 
-class PublicacionCreateView(LoginRequiredMixin, CreateView):
-    model = Publicacion
+class PostCreateView(LoginRequiredMixin, CreateView):
+    model = Post
     template_name = "blog/update_page.html"
     fields = ['title', 'subtitle', 'body', 'image']
     
@@ -43,8 +44,8 @@ class PublicacionCreateView(LoginRequiredMixin, CreateView):
     def get_success_url(self) -> str:
         return reverse_lazy('blog:details_page', args=[self.object.id])
 
-class PublicacionUpdateView(LoginRequiredMixin, UpdateView):
-    model = Publicacion
+class PostUpdateView(LoginRequiredMixin, UpdateView):
+    model = Post
     template_name = "blog/update_page.html"
     fields = ['title', 'subtitle', 'body', 'image']
     

@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 
 {% block head %}
-    <title>Eliminar Publicación</title>
+    <title>Delete Post</title>
 {% endblock head %}
 
 {% block main_content %}
-    <p>Esta por eliminar la publicacion {{object}}.</p>
+    <p>Do you really want to delete post {{object}}?</p>
     <p>
         <form method="post">
             {% csrf_token %}
-            <button>Confirmar</button>
+            <button>Yes</button>
         </form>
     </p>
 {% endblock main_content %}

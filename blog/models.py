@@ -1,7 +1,7 @@
 from django.db import models
 from ckeditor.fields import RichTextField 
     
-class Publicacion(models.Model):
+class Post(models.Model):
     
     title = models.CharField(max_length=40)
     subtitle = models.CharField(max_length=60)

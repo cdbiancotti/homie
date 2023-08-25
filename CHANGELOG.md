@@ -12,5 +12,8 @@
 - Add generic relation
 - Add signals to lkin and lkinbusiness post_save
 - Add custom 404 page
+- Change pages view to CBV
+- Rename 'Publicacion' to 'Post'
+- Update Post list order
 
 ### Added

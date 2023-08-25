@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 
 {% block head %}
-    <title>Publicaciones</title>
+    <title>Posts</title>
 {% endblock head %}
 
 {% block main_content %}
-    <h2>Publicaciones:</h2>
-    <a href={% url 'blog:create_page' %}>Crear publicación</a>
+    <h2>Posts:</h2>
+    <a href={% url 'blog:create_page' %}>Create post</a>
     {% if page_obj %}
-        {% for publicacion in page_obj %}
+        {% for post in page_obj %}
             <li>
-                {{publicacion.title}} || <a href={% url 'blog:details_page' publicacion.id %}>Leer mas...</a>
+                {{post.title}} || <a href={% url 'blog:details_page' post.id %}>more...</a>
             </li>
         {% endfor %}
         {% if page_obj.has_previous %}
@@ -27,6 +27,6 @@
                 <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
             {% endif %}
     {% else %}
-        <p>No se encontraron publicaciones...</p>
+        <p>No post to display yet, create one!</p>
     {% endif %}
 {% endblock main_content %}
