@@ -15,7 +15,7 @@
         {{object.author}} - {{object.date}} 
     </h5>
     <img src={{object.imagen.url}} alt="" height='200'>
-    <p>{{object.body}}</p>
+    <p>{{object.body | safe}}</p>
     <p>
         <a href={% url 'blog:update_page' object.id %}>Editar</a>
         <a href={% url 'blog:delete_page' object.id %}>Eliminar</a>

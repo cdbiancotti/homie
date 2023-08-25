@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import DeleteView, UpdateView, CreateView
 from .models import Publicacion
@@ -14,10 +15,11 @@ def index(request):
 def about(request):
     return render(request, 'blog/about.html', {})
 
-@login_required
-def pages(request):
-    publicaciones = Publicacion.objects.all()
-    return render(request, 'blog/pages.html', {'publicaciones': publicaciones})
+class PublicacionListView(ListView):
+    model = Publicacion
+    template_name = "blog/pages.html"
+    paginate_by=2
+
 
 class PublicacionDetailView(DetailView):
     model = Publicacion
