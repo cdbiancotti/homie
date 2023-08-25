@@ -9,5 +9,8 @@
 - Migrate app account and blog from other proyect
 - Add lkinpractice app
 - Add custom validations and fields
+- Add generic relation
+- Add signals to lkin and lkinbusiness post_save
+- Add custom 404 page
 
 ### Added

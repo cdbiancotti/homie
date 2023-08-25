@@ -23,6 +23,7 @@ class PublicacionDetailView(DetailView):
     model = Publicacion
     template_name = "blog/page.html"
 
+
 class PublicacionDeleteView(LoginRequiredMixin, DeleteView):
     model = Publicacion
     template_name = "blog/delete_page.html"

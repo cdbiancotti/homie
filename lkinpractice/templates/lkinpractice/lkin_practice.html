@@ -4,4 +4,4 @@
     {% csrf_token %} {{form}}
     <button>Submit</button>
 </form>
-{% for lkin in lkins %} {{lkin.text_val}} {{lkin.favorite_color}} {% endfor %} {% endblock main_content %}
+{% for lkin in lkins %} <a href={% url 'lkin:lkin_profile' lkin.id%}>{{lkin.text_val}}</a> {% endfor %} {% endblock main_content %}
