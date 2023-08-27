@@ -15,5 +15,6 @@
 - Change pages view to CBV
 - Rename 'Publicacion' to 'Post'
 - Update Post list order
+- Add PostManager
 
 ### Added

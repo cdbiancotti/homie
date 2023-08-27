@@ -19,7 +19,7 @@ class PostListView(ListView):
     model = Post
     template_name = "blog/pages.html"
     paginate_by=2
-    queryset = Post.objects.all().order_by('-date')
+    queryset = Post.custom_manager.new_to_old()
 
 
 class PostDetailView(DetailView):
