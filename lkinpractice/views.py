@@ -9,7 +9,7 @@ from django.db.models import Q
 class LkinView(View):
     
     def get(self, request):
-        lkins = Lkin.objects.all()
+        lkins = Lkin.objects.only('text_val')
         form = LkinForm()
         return render(request, 'lkinpractice/lkin_practice.html', {'form': form, 'lkins': lkins})
     

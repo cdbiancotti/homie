@@ -16,5 +16,6 @@
 - Rename 'Publicacion' to 'Post'
 - Update Post list order
 - Add PostManager
+- Update how Lkin fetching objects
 
 ### Added
