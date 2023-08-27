@@ -7,3 +7,4 @@ class MyUser(models.Model):
     avatar = models.ImageField(upload_to='avatar', blank=True, null=True)
     descripcion = models.TextField(null=True, blank=True)
     link = models.URLField(null=True, blank=True)
+    birthday = models.DateField(null=True)

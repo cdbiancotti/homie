@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     
     'rest_framework',
     'corsheaders',
@@ -123,6 +124,8 @@ LANGUAGE_CODE = os.getenv('LANGUAGE_CODE', 'en-us')
 TIME_ZONE = os.getenv('TIME_ZONE', 'America/Argentina/Buenos_Aires')
 
 USE_I18N = True
+
+USE_L10N = True
 
 USE_TZ = True
 

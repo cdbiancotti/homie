@@ -70,13 +70,15 @@ def update_profile(request):
             if data['password1'] != '' and data['password1'] == data['password2']:
                 request.user.set_password(data['password1'])
             
-            my_user.avatar = data['avatar']
+            if data['avatar']:
+                my_user.avatar = data['avatar']
             my_user.link = data['link']
             my_user.descripcion = data['descripcion']
+            my_user.birthday = data['birthday']
             
             request.user.save()
             my_user.save()
-            return render(request, 'account/profile.html', {'my_user': my_user})        
+            return render(request, 'account/profile.html', {})        
         else:
             return render(request, 'account/update_profile.html', {'data_form': user_update_form, 'error_msg': 'datos incorrectos'}) 
             
@@ -87,9 +89,10 @@ def update_profile(request):
             'password1': '',
             'password2': '',
             'email': request.user.email,
-            'avatar': my_user.avatar,
-            'descripcion': my_user.descripcion,
-            'link': my_user.link
+            'avatar': request.user.myuser.avatar,
+            'descripcion': request.user.myuser.descripcion,
+            'birthday': request.user.myuser.birthday,
+            'link': request.user.myuser.link
         }
     )
     

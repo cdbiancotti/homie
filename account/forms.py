@@ -20,6 +20,7 @@ class MyUserUpdateForm(forms.Form):
     password2 = forms.CharField(label='Repetir Contraseña', widget=forms.PasswordInput, required=False)
     first_name = forms.CharField()
     last_name = forms.CharField()
-    avatar = forms.ImageField()
+    avatar = forms.ImageField(required=False)
     descripcion = forms.CharField(widget=CKEditorWidget())
     link = forms.URLField()
+    birthday = forms.DateField(required=False)

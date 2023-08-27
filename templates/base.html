@@ -8,21 +8,7 @@
         {% endblock head_base %}
     </head>
     <body>
-        <header>
-            <nav>
-                <a href={% url 'home:index' %}>Homie Page</a>
-                <a href={% url 'blog:about' %}>About</a>
-                <a href={% url 'lkin:lkin' %}>Lkin</a>
-                <a href={% url 'blog:pages' %}>Posts</a>
-                {% if request.user.is_authenticated %}
-                    <a href={% url 'account:profile' %}>{{request.user.username}}</a>
-                    <a href={% url 'account:logout' %}>Logout</a>
-                {% else %}
-                    <a href={% url 'account:signup' %}>Register</a>
-                    <a href={% url 'account:login' %}>Login</a>
-                {% endif %}
-            </nav>
-        </header>
+        <header>{% include 'nav.html' %}</header>
         <main>{% block main_content %} {% endblock main_content %}</main>
     </body>
 </html>

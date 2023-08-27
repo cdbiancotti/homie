@@ -17,5 +17,6 @@
 - Update Post list order
 - Add PostManager
 - Update how Lkin fetching objects
+- Add birthday to `MyUser`
 
 ### Added

@@ -15,7 +15,10 @@
         {{object.author}} - {{object.date}} 
     </h5>
     <img src={{object.imagen.url}} alt="" height='200'>
-    <p>{{object.body | safe}}</p>
+    {% autoescape off %}
+    <p>{{object.body}}</p>
+    {% endautoescape %}
+    {% comment %} <p>{{object.body | safe}}</p> {% endcomment %}
     <p>
         <a href={% url 'blog:update_page' object.id %}>Editar</a>
         <a href={% url 'blog:delete_page' object.id %}>Eliminar</a>

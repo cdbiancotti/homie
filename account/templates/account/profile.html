@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load humanize %}
+{% load l10n %}
 
 {% block head %}
     <title>Perfil</title>
@@ -9,7 +11,11 @@
     <p>{{request.user.username}}</p>
     <p>{{request.user.email}}</p>
     <p>{{request.user.first_name}} {{request.user.last_name}}</p>
-    {% comment %} <img src={{my_user.avatar.url}} alt="" height='200'> {% endcomment %}
+    
+    <p>{{request.user.myuser.birthday | naturalday }}</p>
+    {% if request.user.myuser.avatar %}
+    <img src={{request.user.myuser.avatar.url}} alt="" height='200'>
+    {% endif %}
 
 
     <a href={% url 'account:update_profile' %}>Editar</a>
